@@ -11,6 +11,9 @@
             <f:entry title="${%Docker Force Pull Image}" field="dockerForcePullImage" description="This will force a pull of the Docker Image regardless of whether it exists locally.">
                 <f:checkbox/>
             </f:entry>
+            <f:entry title="${%Docker Image Can Be Customized}" field="dockerImageCustomizable" description="This will allow override default docker image using labels. E.g.: mesosSlaveLabel:evarga/jenkins-slave:latest">
+                <f:checkbox/>
+            </f:entry>
         </f:radioBlock>
     </f:entry>
 
@@ -36,6 +39,16 @@
             </f:entry>
         </f:radioBlock>
     </f:entry>
+
+    <f:entry title="${%Network Info}">
+        <f:repeatableProperty field="networkInfos" add="${%Add Network Info}" minimum="0">
+            <f:entry>
+                <div align="right" class="repeatable-delete show-if-only" style="margin-left: 1em;">
+                    <f:repeatableDeleteButton value="${%Delete Network Info}" /><br/>
+                </div>
+            </f:entry>
+        </f:repeatableProperty>
+        </f:entry>
 
     <f:entry title="${%Volumes}">
         <f:repeatableProperty field="volumes" add="${%Add Volume}" minimum="0">

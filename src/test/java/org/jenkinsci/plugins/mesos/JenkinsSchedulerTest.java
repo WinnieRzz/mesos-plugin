@@ -270,12 +270,14 @@ public class JenkinsSchedulerTest {
                     "test-docker-in-docker-image",
                     Boolean.TRUE,
                     Boolean.TRUE,
+                    Boolean.FALSE,
                     useCustomDockerCommandShell,
                     customDockerCommandShell,
                     Collections.<MesosSlaveInfo.Volume>emptyList(),
                     Collections.<MesosSlaveInfo.Parameter>emptyList(),
                     Protos.ContainerInfo.DockerInfo.Network.HOST.name(),
-                    Collections.<MesosSlaveInfo.PortMapping>emptyList());
+                    Collections.<MesosSlaveInfo.PortMapping>emptyList(),
+                    Collections.<MesosSlaveInfo.NetworkInfo>emptyList());
         }
 
         MesosSlaveInfo mesosSlaveInfo = new MesosSlaveInfo(
@@ -289,7 +291,7 @@ public class JenkinsSchedulerTest {
                 "512",              // executorMem,
                 "remoteFSRoot",     // remoteFSRoot,
                 "2",                // idleTerminationMinutes,
-                null,               // slaveAttributes,
+                (String)null,       // slaveAttributes,
                 null,               // jvmArgs,
                 null,               // jnlpArgs,
                 null,               // defaultSlave,

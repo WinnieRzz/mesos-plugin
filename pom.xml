@@ -7,7 +7,7 @@
   </parent>
 
   <artifactId>mesos</artifactId>
-  <version>0.12.1-SNAPSHOT</version>
+  <version>0.13.2-SNAPSHOT</version>
   <packaging>hpi</packaging>
   <url>http://wiki.jenkins-ci.org/display/JENKINS/Mesos+Plugin</url>
 
@@ -85,8 +85,8 @@
     <jenkins.version>1.565.3</jenkins.version>
     <jenkins-test-harness.version>1.565.3</jenkins-test-harness.version>
     <findbugs.failOnError>false</findbugs.failOnError>
-    <mesos.version>0.27.0</mesos.version>
-    <protobuf.version>2.5.0</protobuf.version>
+    <mesos.version>1.0.0</mesos.version>
+    <protobuf.version>2.6.1</protobuf.version>
     <mockito.version>1.10.19</mockito.version>
     <powermock.version>1.6.2</powermock.version>
     <assertj.version>2.1.0</assertj.version>
@@ -168,6 +168,16 @@
               <configuration>
                   <target>1.6</target>
                   <source>1.6</source>
+              </configuration>
+          </plugin>
+          <plugin>
+              <groupId>org.jenkins-ci.tools</groupId>
+              <artifactId>maven-hpi-plugin</artifactId>
+              <version>1.117</version>
+              <configuration>
+                  <systemProperties>
+                      <hudson.slaves.NodeProvisioner.initialDelay>0</hudson.slaves.NodeProvisioner.initialDelay>
+                  </systemProperties>
               </configuration>
           </plugin>
       </plugins>
